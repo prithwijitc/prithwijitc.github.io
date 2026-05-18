@@ -1,0 +1,31 @@
+{
+  "basics": {
+    "name": "Prithwijit Chowdhury",
+    "label": "PhD student",
+    "image": "",
+    "email": "",
+    "summary": "PhD student at Georgia Tech working on explainable AI and Information Bottleneck methods.",
+    "location": {
+      "city": "Atlanta",
+      "countryCode": "US",
+      "region": "Georgia"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "prithwijitc",
+        "url": "https://github.com/prithwijitc"
+      }
+    ]
+  },
+  "work": [],
+  "volunteer": [],
+  "education": [],
+  "awards": [],
+  "publications": [],
+  "skills": [],
+  "languages": [],
+  "interests": [],
+  "references": [],
+  "projects": []
+}

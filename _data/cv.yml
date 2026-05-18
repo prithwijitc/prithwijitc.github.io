@@ -1,0 +1,21 @@
+cv:
+  name: Prithwijit Chowdhury
+  label: PhD student
+  email:
+  location: Atlanta, GA
+  image: ""
+  summary: PhD student at Georgia Tech working on explainable AI and Information Bottleneck methods.
+
+  social_networks:
+    - network: GitHub
+      username: prithwijitc
+
+  sections:
+    Education:
+      - institution: Georgia Institute of Technology
+        location: Atlanta, GA
+        area:
+        studyType: PhD
+        start_date:
+        end_date:
+        highlights: []
