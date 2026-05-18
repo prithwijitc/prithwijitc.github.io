@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD student at Georgia Tech. XAI and Information Bottleneck.
+subtitle: Graduate Research Assistant at OLIVES Lab, Georgia Tech.
 
 profile:
   align: right
@@ -23,6 +23,6 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a PhD student at Georgia Tech working on explainable AI (XAI) and Information Bottleneck methods.
+Prithwijit Chowdhury received his B.Tech. degree from KIIT University, India, in 2020. He joined the Georgia Institute of Technology as an M.S. student in the School of Electrical and Computer Engineering in 2021 and is currently a fifth-year Ph.D. student and Graduate Research Assistant at the OLIVES Lab.
 
-This site is built with the [al-folio](https://github.com/alshedivat/al-folio) academic template and will collect my research, publications, projects, and notes.
+He is a researcher in The Center for Energy and Geo Processing (CeGP) and a member of the Omni Lab for Intelligent Visual Engineering and Science (OLIVES). His research interests lie in digital signal and image processing and machine learning with applications to geophysics. He is an IEEE Student Member and a published author, with several works presented at the IMAGE conference and NeurIPS workshops, and published in the GEOPHYSICS journal and IEEE Access.

@@ -1,14 +1,16 @@
 cv:
   name: Prithwijit Chowdhury
-  label: PhD student
-  email:
+  label: Graduate Research Assistant at OLIVES Lab, Georgia Tech
+  email: pchowdhury6@gatech.edu
   location: Atlanta, GA
   image: ""
-  summary: PhD student at Georgia Tech working on explainable AI and Information Bottleneck methods.
+  summary: Fifth-year Ph.D. student and Graduate Research Assistant at OLIVES Lab, Georgia Tech.
 
   social_networks:
     - network: GitHub
       username: prithwijitc
+    - network: LinkedIn
+      username: prithwijit-chowdhury-067455152
 
   sections:
     Education:
