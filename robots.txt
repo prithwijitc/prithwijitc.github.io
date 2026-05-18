@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://prithwijitc.github.io/sitemap.xml
