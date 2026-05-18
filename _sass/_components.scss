@@ -80,6 +80,34 @@ ul.task-list input[type="checkbox"] {
 
 // About page
 
+.about-hero {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+  margin-bottom: 2rem;
+
+  &.has-profile {
+    grid-template-columns: minmax(220px, 32%) minmax(0, 1fr);
+  }
+}
+
+.about-profile {
+  width: 100%;
+  margin: 0;
+
+  figure {
+    margin-bottom: 0;
+  }
+}
+
+.about-main {
+  min-width: 0;
+}
+
+.about-header {
+  margin-bottom: 1.5rem;
+}
+
 .about-email-line {
   margin: 0.35rem 0 0.25rem;
 }
@@ -87,6 +115,18 @@ ul.task-list input[type="checkbox"] {
 .about-email {
   display: inline-block;
   font-size: 1rem;
+}
+
+.about-section-heading {
+  margin: 0 0 0.75rem;
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.about-content {
+  p {
+    line-height: 1.65;
+  }
 }
 
 @media (min-width: 576px) {
@@ -98,6 +138,22 @@ ul.task-list input[type="checkbox"] {
         display: block;
       }
     }
+  }
+}
+
+@media (min-width: 576px) {
+  .about-profile {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .about-hero.has-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .about-profile {
+    max-width: 360px;
   }
 }
 

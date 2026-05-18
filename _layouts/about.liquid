@@ -2,49 +2,56 @@
 layout: default
 ---
 <div class="post">
-  <header class="post-header">
-    {% assign socials = site.data.socials %}
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    {% if socials.email %}
-      <div class="about-email-line">
-        <a class="about-email" href="mailto:{{ socials.email | encode_email }}">{{ socials.email }}</a>
-      </div>
-    {% endif %}
-    {% if page.subtitle %}
-      <p class="desc">{{ page.subtitle }}</p>
-    {% endif %}
-  </header>
-
   <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+    {% assign socials = site.data.socials %}
+    <div class="about-hero{% if page.profile %} has-profile{% endif %}">
+      {% if page.profile %}
+        <div class="profile about-profile">
+          {% if page.profile.image %}
+            {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+            {% if page.profile.image_circular %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+            {% else %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+            {% endif %}
+            {% capture sizes %}(min-width: {{ site.max_width }}) 300px, (min-width: 768px) 32vw, 95vw{% endcapture %}
+            {%
+              include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
+              cache_bust=true
+            %}
           {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3 }}px, (min-width: 576px) 30vw, 95vw{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
+          {% if page.profile.more_info %}
+            <div class="more-info">{{ page.profile.more_info }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
 
-    <div class="clearfix about-content">{{ content }}</div>
+      <div class="about-main">
+        <header class="post-header about-header">
+          <h1 class="post-title">
+            {% if site.title == 'blank' %}
+              <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
+              {{ site.last_name }}
+            {% else %}
+              {{ site.title }}
+            {% endif %}
+          </h1>
+          {% if socials.email %}
+            <div class="about-email-line">
+              <a class="about-email" href="mailto:{{ socials.email | encode_email }}">{{ socials.email }}</a>
+            </div>
+          {% endif %}
+          {% if page.subtitle %}
+            <p class="desc">{{ page.subtitle }}</p>
+          {% endif %}
+        </header>
+
+        <section class="about-bio-section">
+          <h2 class="about-section-heading">Bio</h2>
+          <div class="about-content">{{ content }}</div>
+        </section>
+      </div>
+    </div>
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
@@ -74,8 +81,6 @@ layout: default
     {% if page.social %}
       <div class="social">
         <div class="contact-icons">{% social_links %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
       </div>
     {% endif %}
 

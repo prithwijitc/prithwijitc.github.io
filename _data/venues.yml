@@ -1,1 +1,31 @@
-{}
+ACCESS:
+  url: https://ieeeaccess.ieee.org/
+  color: "#00629B"
+
+GEOPHYSICS:
+  url: https://library.seg.org/journal/gpysa7
+  color: "#4B6F44"
+
+ICIP:
+  url: https://2024.ieeeicip.org/
+  color: "#00529B"
+
+SPM:
+  url: https://signalprocessingsociety.org/publications-resources/ieee-signal-processing-magazine
+  color: "#6A4C93"
+
+ICASSP:
+  url: https://2023.ieeeicassp.org/
+  color: "#00529B"
+
+IMAGE:
+  url: https://www.imageevent.org/
+  color: "#8A5A44"
+
+NeurIPS:
+  url: https://nips.cc/virtual/2023/workshop/66515
+  color: "#D85C27"
+
+arXiv:
+  url: https://arxiv.org/
+  color: "#B31B1B"
