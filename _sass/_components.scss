@@ -78,6 +78,65 @@ ul.task-list input[type="checkbox"] {
   margin-right: 1rem;
 }
 
+// About page
+
+.about-contact {
+  margin: 0.35rem 0 0.5rem;
+}
+
+.about-email {
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.about-contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.55rem;
+}
+
+.about-contact-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 6px;
+  padding: 0.25rem 0.65rem;
+  color: var(--global-text-color);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.2;
+
+  &:hover {
+    border-color: var(--global-theme-color);
+    color: var(--global-theme-color);
+    text-decoration: none;
+  }
+}
+
+.about-intro {
+  display: grid;
+  gap: 1.5rem;
+  align-items: start;
+
+  &.has-profile {
+    grid-template-columns: minmax(180px, 28%) 1fr;
+  }
+
+  .about-profile {
+    width: 100%;
+    margin: 0;
+
+    figure {
+      margin-bottom: 0;
+    }
+  }
+
+  .about-bio {
+    min-width: 0;
+  }
+}
+
 @media (min-width: 576px) {
   .profile {
     width: 30%;
@@ -87,6 +146,16 @@ ul.task-list input[type="checkbox"] {
         display: block;
       }
     }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .about-intro.has-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .about-intro .about-profile {
+    max-width: 320px;
   }
 }
 

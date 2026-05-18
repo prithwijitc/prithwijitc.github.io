@@ -3,6 +3,7 @@ layout: default
 ---
 <div class="post">
   <header class="post-header">
+    {% assign socials = site.data.socials %}
     <h1 class="post-title">
       {% if site.title == 'blank' %}
         <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
@@ -11,34 +12,58 @@ layout: default
         {{ site.title }}
       {% endif %}
     </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
-
-  <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
+    {% if socials.email or socials.linkedin_username or socials.github_username or socials.scholar_userid %}
+      <div class="about-contact">
+        {% if socials.email %}
+          <a class="about-email" href="mailto:{{ socials.email | encode_email }}">{{ socials.email }}</a>
         {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
+        {% if socials.linkedin_username or socials.github_username or socials.scholar_userid %}
+          <div class="about-contact-links">
+            {% if socials.linkedin_username %}
+              <a class="about-contact-tag" href="https://www.linkedin.com/in/{{ socials.linkedin_username }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            {% endif %}
+            {% if socials.github_username %}
+              <a class="about-contact-tag" href="https://github.com/{{ socials.github_username }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+            {% endif %}
+            {% if socials.scholar_userid %}
+              <a class="about-contact-tag" href="https://scholar.google.com/citations?user={{ socials.scholar_userid }}" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            {% endif %}
+          </div>
         {% endif %}
       </div>
     {% endif %}
+    {% if page.subtitle %}
+      <p class="desc">{{ page.subtitle }}</p>
+    {% endif %}
+  </header>
 
-    <div class="clearfix">{{ content }}</div>
+  <article>
+    <div class="about-intro{% if page.profile %} has-profile{% endif %}">
+      {% if page.profile %}
+        <div class="profile about-profile">
+          {% if page.profile.image %}
+            {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+            {% if page.profile.image_circular %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
+            {% else %}
+              {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
+            {% endif %}
+            {% capture sizes %}(min-width: {{ site.max_width }}) 260px, (min-width: 576px) 30vw, 95vw{% endcapture %}
+            {%
+              include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
+              cache_bust=true
+            %}
+          {% endif %}
+          {% if page.profile.more_info %}
+            <div class="more-info">{{ page.profile.more_info }}</div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      <div class="about-bio clearfix">
+        {{ content }}
+      </div>
+    </div>
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
